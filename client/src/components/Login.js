@@ -7,7 +7,7 @@ export default function Login() {
   const emailRef = useRef();
   const passwordRef = useRef();
 
-  const { login } = useAuth();
+  const { login, handleFacebookAuth } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
@@ -48,13 +48,14 @@ export default function Login() {
             </Button>
           </Form>
           <div className="w-100 text-center mt-3">
-            <Link to="/forgot password">Forgot Password</Link>
+            <Link to="/forgot-password">Forgot Password ?</Link>
           </div>
         </Card.Body>
       </Card>
       <div className="w-100 text-center mt-2">
         Need an account? <Link to="/signup">Sign Up</Link>
       </div>
+      <button onClick={handleFacebookAuth}>Signin with Facebook</button>
     </>
   );
 }

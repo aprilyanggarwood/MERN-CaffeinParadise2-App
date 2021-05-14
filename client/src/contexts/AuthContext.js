@@ -1,6 +1,10 @@
 import React, { useContext, useState, useEffect, createContext } from "react";
 import { auth } from "../firebase";
+import firebase from "firebase";
 
+const FacebookProvider = new firebase.auth.FacebookAuthProvider();
+const GithubProvider = new firebase.auth.GithubAuthProvider();
+const GoogleProvider = new firebase.auth.GoogleAuthProvider();
 const AuthContext = createContext({
   signup: "",
   login: "",
@@ -9,6 +13,15 @@ const AuthContext = createContext({
 export function useAuth() {
   return useContext(AuthContext);
 }
+
+// export function FacebookAuthProvider({ children }) {
+//   const [FacebookUser, setFacebookUser] = useState();
+//   const [loading, setLoading] = useState(true);
+// }
+
+// export function GithubAuthProvider({ children }) {}
+
+// export function GoogleAuthProvider({ children }) {}
 
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState();
@@ -38,6 +51,37 @@ export function AuthProvider({ children }) {
     return currentUser.updatePassword(password);
   }
 
+  //facebook auth flow
+  const handleFacebookAuth = () => {
+    auth
+      .signInWithPopup(FacebookProvider)
+      .then((result) => {
+        /** @type {firebase.auth.OAuthCredential} */
+        var credential = result.credential;
+
+        // The signed-in user info.
+        // console.log(user);
+
+        // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+        var accessToken = credential.accessToken;
+        console.log(accessToken);
+
+        result.user && window.location.replace("/");
+        // ...
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // The email of the user's account used.
+        var email = error.email;
+        // The firebase.auth.AuthCredential type that was used.
+        var credential = error.credential;
+
+        // ...
+      });
+  };
+
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
@@ -55,6 +99,7 @@ export function AuthProvider({ children }) {
     resetPassword,
     updateEmail,
     updatePassword,
+    handleFacebookAuth,
   };
 
   return (

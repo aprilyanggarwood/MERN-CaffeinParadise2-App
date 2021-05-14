@@ -2,12 +2,15 @@ import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
+import SocialMediaAuth from "./SocialMediaAuth";
+
+import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 
 export default function Signup() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
-  const { signup } = useAuth();
+  const { signup, handleFacebookAuth } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
@@ -22,12 +25,9 @@ export default function Signup() {
     try {
       setError("");
       setLoading(true);
-      const res = await signup(
-        emailRef.current.value,
-        passwordRef.current.value
-      );
-      //   history.push("/");
-      console.log(res);
+      await signup(emailRef.current.value, passwordRef.current.value);
+      history.push("/");
+      // console.log(res);
     } catch {
       setError("Failed to create an account");
     }
@@ -35,12 +35,28 @@ export default function Signup() {
     setLoading(false);
   }
 
+  const handleOnClick = async (provider) => {
+    const res = await SocialMediaAuth(provider);
+    console.log(res);
+    history.push("/login");
+  };
+
   return (
     <>
       <Card>
         <Card.Body>
           <h2 className="text-center mb-4">Sign Up</h2>
           {error && <Alert variant="danger">{error}</Alert>}
+
+          {/* <Button onClick={() => handleOnClick(FacebookAuthProvider)}>
+            Facebook
+          </Button>
+          <Button onClick={() => handleOnClick(GithubAuthProvider)}>
+            Github
+          </Button>
+          <Button onClick={() => handleOnClick(GoogleAuthProvider)}>
+            Google
+          </Button> */}
           <Form onSubmit={handleSubmit}>
             <Form.Group id="email">
               <Form.Label>Email</Form.Label>
@@ -63,6 +79,7 @@ export default function Signup() {
       <div className="w-100 text-center mt-2">
         Already have an account? <Link to="/login">Log In</Link>
       </div>
+      <button onClick={handleFacebookAuth}>CLICK</button>
     </>
   );
 }
