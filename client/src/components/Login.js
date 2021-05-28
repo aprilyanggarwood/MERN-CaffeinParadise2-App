@@ -2,12 +2,14 @@ import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
+import GoogleButton from "react-google-button";
+// import FacebookLogin from "react-facebook-login";
 
 export default function Login() {
   const emailRef = useRef();
   const passwordRef = useRef();
 
-  const { login, handleFacebookAuth } = useAuth();
+  const { login, handleFacebookAuth, handleGoogleAuth } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
@@ -56,6 +58,14 @@ export default function Login() {
         Need an account? <Link to="/signup">Sign Up</Link>
       </div>
       <button onClick={handleFacebookAuth}>Signin with Facebook</button>
+      <GoogleButton onClick={handleGoogleAuth} />
+      {/* <FacebookLogin
+        appId="1088597931155576"
+        autoLoad={true}
+        fields="name,email,picture"
+        onClick={componentClicked}
+        callback={responseFacebook}
+      /> */}
     </>
   );
 }

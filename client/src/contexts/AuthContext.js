@@ -14,15 +14,6 @@ export function useAuth() {
   return useContext(AuthContext);
 }
 
-// export function FacebookAuthProvider({ children }) {
-//   const [FacebookUser, setFacebookUser] = useState();
-//   const [loading, setLoading] = useState(true);
-// }
-
-// export function GithubAuthProvider({ children }) {}
-
-// export function GoogleAuthProvider({ children }) {}
-
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState();
   const [loading, setLoading] = useState(true);
@@ -82,6 +73,36 @@ export function AuthProvider({ children }) {
       });
   };
 
+  const handleGoogleAuth = () => {
+    auth
+      .signInWithPopup(GoogleProvider)
+      .then((result) => {
+        /** @type {firebase.auth.OAuthCredential} */
+        var credential = result.credential;
+
+        // The signed-in user info.
+        // console.log(user);
+
+        // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+        var accessToken = credential.accessToken;
+        console.log(accessToken);
+
+        result.user && window.location.replace("/");
+        // ...
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // The email of the user's account used.
+        var email = error.email;
+        // The firebase.auth.AuthCredential type that was used.
+        var credential = error.credential;
+
+        // ...
+      });
+  };
+
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
@@ -100,6 +121,9 @@ export function AuthProvider({ children }) {
     updateEmail,
     updatePassword,
     handleFacebookAuth,
+    handleGoogleAuth,
+    GoogleProvider,
+    FacebookProvider,
   };
 
   return (
