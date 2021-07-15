@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-// import CoffeeDrinkImg from "../components/CoffeeDrinkImg";
+import Navbar from "../components/Nav/Navbar";
+import Contact from "./Contact";
+import CoffeeDrinkImg from "./CoffeeDrinkImg";
 // import Menu from "./Menu";
+import "./style.css";
 import Categories from "./Categories";
-import items from "./MemuData";
+import items from "./MenuData";
 const allCategories = ["all", ...new Set(items.map((item) => item.category))];
 
 const Menu = () => {
@@ -30,6 +33,8 @@ const Menu = () => {
 
   return (
     <main>
+      <Navbar>{Contact}</Navbar>
+
       <section className="menu section">
         <div className="name">
           <h2>our menu</h2>
@@ -73,7 +78,7 @@ const Menu = () => {
               <div className="col">
                 <div className="card h-100">
                   <img
-                    src={img_url}
+                    src={CoffeeDrinkImg[img_url]}
                     className="card-img-top img-size"
                     alt="name"
                   />

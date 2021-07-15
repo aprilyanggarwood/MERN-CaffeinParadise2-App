@@ -8,8 +8,7 @@ const menu = [
     price_sm: 3.5,
     price_md: 5.5,
     price_lg: 7,
-    // isHotDrink: true,
-    img_url: "../CoffeeDrinkImg/black-cup-coffee.jpg",
+    img_url: "hot1",
     short_description:
       "This is chocolate and coffee-lover's favorite! a great combination of espresso, chocolate and steamed milk foam",
   },
@@ -23,8 +22,7 @@ const menu = [
     price_sm: 2,
     price_md: 3,
     price_lg: 4,
-    // isHotDrink: true,
-    img_url: "../CoffeeDrinkImg/cappuccino.jpg",
+    img_url: "hot2",
     short_description:
       "The Italian coffee drink that is traditionally prepared with equal parts double espresso, steamed milk and steamed cream foam on top. Espresso is typically made with a dark roasted coffee from Italy and ground finely",
   },
@@ -36,8 +34,7 @@ const menu = [
     price_sm: 3.5,
     price_md: 5.5,
     price_lg: 7,
-    // isHotDrink: true,
-    img_url: "../CoffeeDrinkImg/white-cup2-coffee.jpg",
+    img_url: "hot3",
     short_description:
       "An espresso-based drink with thin layer of steamed milk.",
   },
@@ -49,8 +46,7 @@ const menu = [
     price_sm: 3.5,
     price_md: 5.5,
     price_lg: 7,
-    // isHotDrink: true,
-    img_url: "../CoffeeDrinkImg/green-cup-coffee.jpg",
+    img_url: "hot4",
     short_description:
       "Espresso-based coffee traditionally prepared with little more layer of steamed milk foam than Flat White coffee",
   },
@@ -62,8 +58,7 @@ const menu = [
     price_sm: 3.5,
     price_md: 5.5,
     price_lg: 7,
-    // isHotDrink: true,
-    img_url: "../CoffeeDrinkImg/green-tea-latte.jpg",
+    img_url: "hot5",
     short_description:
       "Espresso-based coffee combine in the right amount of green tea and top with steamed milk foam",
   },
@@ -75,8 +70,7 @@ const menu = [
     price_sm: 3.5,
     price_md: 5.5,
     price_lg: 7,
-    // isHotDrink: true,
-    img_url: "../CoffeeDrinkImg/yellow-cup-coffee.jpg",
+    img_url: "hot6",
     short_description:
       "Indulge in this flavorful drink from our neighbors to the south that pairs robust coffee with chocolate, spice, citrus and vanilla. It's magic in a cup!",
   },
@@ -88,8 +82,7 @@ const menu = [
     price_sm: 3.5,
     price_md: 5.5,
     price_lg: 7,
-    // isHotDrink: true,
-    img_url: "../CoffeeDrinkImg/whithe-cup-coffee1.jpg",
+    img_url: "hot7",
     short_description:
       "Indulgent espresso based, cocoa, chocolate blended together for a creamy indulgence.",
   },
@@ -101,8 +94,7 @@ const menu = [
     price_sm: 3.5,
     price_md: 5.5,
     price_lg: 7,
-    // isHotDrink: true,
-    img_url: "../CoffeeDrinkImg/light-blue-cup-coffee.jpg",
+    img_url: "hot8",
     short_description:
       "Cafe au Lait(coffee with milk) consists of equal parts coffee and steamed milk and top with cream foam",
   },
@@ -114,8 +106,7 @@ const menu = [
     price_sm: 3.5,
     price_md: 5.5,
     price_lg: 7,
-    // isHotDrink: false,
-    img_url: "../CoffeeDrinkImg/white-cup-coffee.jpg",
+    img_url: "cold1",
     short_description:
       "Combination of strong espresso and sweetened condensed milk, half-and-half, a little sugar and vanilla",
   },
@@ -127,8 +118,7 @@ const menu = [
     price_sm: 3.5,
     price_md: 5.5,
     price_lg: 7,
-    // isHotDrink: false,
-    img_url: "../CoffeeDrinkImg/ice-green-tea-latte.jpg",
+    img_url: "cold2",
     short_description:
       "A perfect balance of espresso, vanilla, milk and caramel.",
   },
@@ -140,8 +130,7 @@ const menu = [
     price_sm: 3.5,
     price_md: 5.5,
     price_lg: 7,
-    // isHotDrink: false,
-    img_url: "../CoffeeDrinkImg/nuts-coffee.jpg",
+    img_url: "cold3",
     short_description:
       "Espresso over ice with sweetened condensed milk is an unbeatable Southeast Asian treat",
   },
@@ -153,8 +142,7 @@ const menu = [
     price_sm: 3.5,
     price_md: 5.5,
     price_lg: 7,
-    // isHotDrink: false,
-    img_url: "../CoffeeDrinkImg/coffee-with-popcorn.jpg",
+    img_url: "cold4",
     short_description:
       "Espresso-based coffee perfectly blend with cocoa, almond milk on the ice",
   },
@@ -166,8 +154,7 @@ const menu = [
     price_sm: 3.5,
     price_md: 5.5,
     price_lg: 7,
-    // isHotDrink: false,
-    img_url: "../CoffeeDrinkImg/glass-coffee.jpg",
+    img_url: "cold5",
     short_description:
       "Homemade vanilla simple syrup gives a fragrant hint of sweetness to your iced Espresso coffee.",
   },
@@ -179,8 +166,7 @@ const menu = [
     price_sm: 3.5,
     price_md: 5.5,
     price_lg: 7,
-    // isHotDrink: false,
-    img_url: "../CoffeeDrinkImg/cold-coffee.jpg",
+    img_url: "cold6",
     short_description:
       "The toasted flavor of caramel pairs beautifully with coconut and cold brew espresso",
   },
@@ -192,8 +178,7 @@ const menu = [
     price_sm: 3.5,
     price_md: 5.5,
     price_lg: 7,
-    // isHotDrink: false,
-    img_url: "../CoffeeDrinkImg/coffee-cream-cinnamon.jpg",
+    img_url: "cold7",
     short_description:
       "Italian iced coffee, made by shaking coffee with ice and toasted coconut syrup, top with creamy coconut milk",
   },
@@ -205,8 +190,7 @@ const menu = [
     price_sm: 3.5,
     price_md: 5.5,
     price_lg: 7,
-    // isHotDrink: false,
-    img_url: "../CoffeeDrinkImg/coffee-with-foam.jpg",
+    img_url: "cold8",
     short_description:
       "Espresso-based coffee infuse it with cinnamon and chicory (a New Orleans classic) overnight.",
   },

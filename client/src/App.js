@@ -12,6 +12,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // import UITest from "./FirebaseStyledSignedup";
 import SignInScreen from "./FirebaseStyledSignedup";
 import Menu from "./pages/Menu";
+import Contact from "./pages/Contact";
 
 function App() {
   return (
@@ -34,12 +35,13 @@ function App() {
               <SignInScreen />
             </Route>
             <Route exact path="/menu" component={Menu} />
+            <Route exact path="/contact" component={Contact} />
             {/* <Route exact path="/signup" component={Signup} /> */}
             {/* <Route exact path="/login" component={Login} /> */}
             {/* <Route exact path="/forgot-password" component={ForgotPassword} /> */}
           </Switch>
           {/* </AuthProvider> */}
-        </Router>
+        </Router>{" "}
       </div>
     </Container>
   );
