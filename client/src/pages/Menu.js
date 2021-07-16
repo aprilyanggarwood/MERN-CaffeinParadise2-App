@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import Navbar from "../components/Nav/Navbar";
 import Contact from "./Contact";
 import CoffeeDrinkImg from "./CoffeeDrinkImg";
+import { useStoreContext } from "../components/utils/GlobalSteate";
+import {
+  ADD_ORDER,
+  REMOVE_ORDER,
+  SAVE_ORDER,
+} from "../components/utils/action/actionTypes";
 // import Menu from "./Menu";
 import "./style.css";
 import Categories from "./Categories";
@@ -12,6 +18,7 @@ const Menu = () => {
   const [menuItems, setMenuItems] = useState(items);
   const [categories, setCategories] = useState(allCategories);
   const [category, setCategory] = useState("all");
+  const [state, dispatch] = useStoreContext();
 
   const filterItems = (category) => {
     console.log("filtering by --- ", category);
@@ -29,6 +36,10 @@ const Menu = () => {
       ({ sub_category }) => sub_category === category
     );
     setMenuItems(filtered);
+  };
+
+  const handleOrder = (item) => {
+    dispatch({ type: ADD_ORDER, order: item });
   };
 
   return (
@@ -114,7 +125,12 @@ const Menu = () => {
                         large - ${price_lg}
                       </option>
                     </select>
-                    <button className="order-btn">Order</button>
+                    <button
+                      className="order-btn"
+                      onClick={() => handleOrder(menuItem)}
+                    >
+                      Order
+                    </button>
                   </div>
                 </div>
               </div>
@@ -122,6 +138,13 @@ const Menu = () => {
           })}
         </div>
       </section>
+      <div>
+        <ul>
+          <li>item1</li>
+          <li>item2</li>
+          <li>item3</li>
+        </ul>
+      </div>
     </main>
   );
 };

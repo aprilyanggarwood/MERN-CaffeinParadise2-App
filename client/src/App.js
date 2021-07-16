@@ -13,6 +13,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import SignInScreen from "./FirebaseStyledSignedup";
 import Menu from "./pages/Menu";
 import Contact from "./pages/Contact";
+import { StoreProvider } from "./components/utils/GlobalSteate";
+import YourOrders from "./pages/YourOrders";
 
 function App() {
   return (
@@ -20,29 +22,32 @@ function App() {
       className="d-flex align-items-center justify-content-center"
       style={{ minHeight: "100vh" }}
     >
-      <div className="w-100">
-        <Router>
-          {/* <AuthProvider> */}
-          <Switch>
-            {/* <PrivateRoute exact path="/" component={Dashboard} /> */}
-            {/* <PrivateRoute
+      <StoreProvider>
+        <div className="w-100">
+          <Router>
+            {/* <AuthProvider> */}
+            <Switch>
+              {/* <PrivateRoute exact path="/" component={Dashboard} /> */}
+              {/* <PrivateRoute
               exact
               path="/update-profile"
               component={UpdateProfile}
             /> */}
-            <Route exact path="/ui">
-              {/* <UITest /> */}
-              <SignInScreen />
-            </Route>
-            <Route exact path="/menu" component={Menu} />
-            <Route exact path="/contact" component={Contact} />
-            {/* <Route exact path="/signup" component={Signup} /> */}
-            {/* <Route exact path="/login" component={Login} /> */}
-            {/* <Route exact path="/forgot-password" component={ForgotPassword} /> */}
-          </Switch>
-          {/* </AuthProvider> */}
-        </Router>{" "}
-      </div>
+              <Route exact path="/ui">
+                {/* <UITest /> */}
+                <SignInScreen />
+              </Route>
+              <Route exact path="/menu" component={Menu} />
+              <Route exact path="/contact" component={Contact} />
+              <Route exact path="/yourorder" component={YourOrders} />
+              {/* <Route exact path="/signup" component={Signup} /> */}
+              {/* <Route exact path="/login" component={Login} /> */}
+              {/* <Route exact path="/forgot-password" component={ForgotPassword} /> */}
+            </Switch>
+            {/* </AuthProvider> */}
+          </Router>{" "}
+        </div>
+      </StoreProvider>
     </Container>
   );
 }
