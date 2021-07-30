@@ -1,18 +1,18 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 function Navbar() {
   return (
     <>
-      <div id="navbarHP" className Name="pill-nav">
+      <div id="navbarHP" name="pill-nav">
         <nav className="navbar navbar-expand-lg navbar-light bg-gray">
           <h2 className="titleHeading"> Caffeine Paradise</h2>
 
           <nav className="collapse navbar-collapse" id="navbarNav">
-            <ulNav className="navbar-nav ml-auto">
+            <ul className="navbar-nav ml-auto">
               <li className="nav-item">
-                <a href="/yourorder" className="navR">
+                <Link to="/yourorder" className="navR">
                   <span>Your Order</span>
-                </a>
+                </Link>
               </li>
 
               <li className="nav-item active">
@@ -26,7 +26,7 @@ function Navbar() {
                   <i className="fas fa-sign-out-alt"></i> log out
                 </a>
               </li>
-            </ulNav>
+            </ul>
           </nav>
         </nav>
       </div>

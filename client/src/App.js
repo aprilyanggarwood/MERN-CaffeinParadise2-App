@@ -13,7 +13,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import SignInScreen from "./FirebaseStyledSignedup";
 import Menu from "./pages/Menu";
 import Contact from "./pages/Contact";
-import { StoreProvider } from "./components/utils/GlobalSteate";
+import { StoreProvider } from "./components/utils/GlobalState";
 import YourOrders from "./pages/YourOrders";
 
 function App() {
@@ -22,9 +22,9 @@ function App() {
       className="d-flex align-items-center justify-content-center"
       style={{ minHeight: "100vh" }}
     >
-      <StoreProvider>
-        <div className="w-100">
-          <Router>
+      <div className="w-100">
+        <Router>
+          <StoreProvider>
             {/* <AuthProvider> */}
             <Switch>
               {/* <PrivateRoute exact path="/" component={Dashboard} /> */}
@@ -45,9 +45,9 @@ function App() {
               {/* <Route exact path="/forgot-password" component={ForgotPassword} /> */}
             </Switch>
             {/* </AuthProvider> */}
-          </Router>{" "}
-        </div>
-      </StoreProvider>
+          </StoreProvider>
+        </Router>{" "}
+      </div>
     </Container>
   );
 }

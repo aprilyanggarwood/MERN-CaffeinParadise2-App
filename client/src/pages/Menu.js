@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Navbar from "../components/Nav/Navbar";
 import Contact from "./Contact";
 import CoffeeDrinkImg from "./CoffeeDrinkImg";
-import { useStoreContext } from "../components/utils/GlobalSteate";
+// import { useStoreContext, StoreContext } from "../components/utils/GlobalState";
+import { useStoreContext } from "../components/utils/GlobalState";
 import {
   ADD_ORDER,
   REMOVE_ORDER,
@@ -18,8 +19,14 @@ const Menu = () => {
   const [menuItems, setMenuItems] = useState(items);
   const [categories, setCategories] = useState(allCategories);
   const [category, setCategory] = useState("all");
-  const [state, dispatch] = useStoreContext();
+  const [quantities, setQuantities] = useState({});
 
+  const [state, dispatch] = useStoreContext();
+  // const [state, dispatch] = useContext(StoreContext);
+
+  useEffect(() => {
+    console.log(state.orders);
+  }, [state]);
   const filterItems = (category) => {
     console.log("filtering by --- ", category);
     setCategory(category);
@@ -38,8 +45,12 @@ const Menu = () => {
     setMenuItems(filtered);
   };
 
-  const handleOrder = (item) => {
-    dispatch({ type: ADD_ORDER, order: item });
+  const handleOrder = (item, { target }) => {
+    const quantity = target.previousSibling.previousSibling.value;
+    const size = target.previousSibling.value;
+    console.log(item);
+    dispatch({ type: ADD_ORDER, payload: { ...item, quantity, size } });
+    console.log(quantities);
   };
 
   return (
@@ -75,7 +86,7 @@ const Menu = () => {
           className="row row-cols-1 row-cols-md-4 g-2"
           style={{ margin: "15px" }}
         >
-          {menuItems.map((menuItem) => {
+          {menuItems.map((menuItem, i) => {
             const {
               id,
               name,
@@ -86,11 +97,11 @@ const Menu = () => {
               short_description,
             } = menuItem;
             return (
-              <div className="col">
+              <div className="col" key={i}>
                 <div className="card h-100">
                   <img
                     src={CoffeeDrinkImg[img_url]}
-                    className="card-img-top img-size"
+                    className="card-img-top img-size target"
                     alt="name"
                   />
 
@@ -101,12 +112,18 @@ const Menu = () => {
 
                   <div className="card-footer">
                     <select
+                      onChange={({ target }) => {
+                        console.log(target.value);
+                        setQuantities({
+                          ...quantities,
+                          [`drink-${i}`]: target.value,
+                        });
+                      }}
                       className="quantity form-select form-select-sm target"
                       aria-label=".form-select-sm example"
+                      defaultValue="1"
                     >
-                      <option value="1" selected>
-                        1
-                      </option>
+                      <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
                       <option value="4">4</option>
@@ -114,20 +131,15 @@ const Menu = () => {
                     <select
                       className="price form-select form-select-sm target"
                       aria-label=".form-select-sm example"
+                      defaultValue="small"
                     >
-                      <option value="small-{price_sm}" selected>
-                        small - ${price_sm}
-                      </option>
-                      <option value="medium-{price_md}">
-                        medium - ${price_md}
-                      </option>
-                      <option value="large-{price_lg}">
-                        large - ${price_lg}
-                      </option>
+                      <option value="small">small - ${price_sm}</option>
+                      <option value="medium">medium - ${price_md}</option>
+                      <option value="large">large - ${price_lg}</option>
                     </select>
                     <button
                       className="order-btn"
-                      onClick={() => handleOrder(menuItem)}
+                      onClick={(e) => handleOrder(menuItem, e)}
                     >
                       Order
                     </button>

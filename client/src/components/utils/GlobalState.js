@@ -6,6 +6,7 @@ import {
   LOADING,
 } from "./action/actionTypes";
 
+// export const StoreContext = createContext();
 const StoreContext = createContext();
 const { Provider } = StoreContext;
 
@@ -19,10 +20,10 @@ const reducer = (state, action) => {
       };
 
     case ADD_ORDER:
-      console.log(action.order);
+      console.log(action.payload);
       return {
         ...state,
-        orders: [action.order, ...state.orders],
+        orders: [action.payload, ...state.orders],
         loading: false,
       };
 
