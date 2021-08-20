@@ -1,4 +1,8 @@
-function orderModal() {
+import { Modal, Button } from "react-bootstrap";
+import React, { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+const OrderModal = () => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -7,7 +11,7 @@ function orderModal() {
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
-        Confirm order
+        Confirm your order
       </Button>
 
       <Modal show={show} onHide={handleClose}>
@@ -26,6 +30,6 @@ function orderModal() {
       </Modal>
     </>
   );
-}
+};
 
-render(<orderModal />);
+export default OrderModal;

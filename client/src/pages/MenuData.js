@@ -11,6 +11,8 @@ const menu = [
     img_url: "hot1",
     short_description:
       "This is chocolate and coffee-lover's favorite! a great combination of espresso, chocolate and steamed milk foam",
+    rating: 4,
+    numReviews: 12,
   },
 
   {
@@ -25,6 +27,8 @@ const menu = [
     img_url: "hot2",
     short_description:
       "The Italian coffee drink that is traditionally prepared with equal parts double espresso, steamed milk and steamed cream foam on top. Espresso is typically made with a dark roasted coffee from Italy and ground finely",
+    rating: 4.5,
+    numReviews: 10,
   },
   {
     id: 3,
@@ -37,6 +41,8 @@ const menu = [
     img_url: "hot3",
     short_description:
       "An espresso-based drink with thin layer of steamed milk.",
+    rating: 4,
+    numReviews: 15,
   },
   {
     id: 4,
@@ -49,6 +55,8 @@ const menu = [
     img_url: "hot4",
     short_description:
       "Espresso-based coffee traditionally prepared with little more layer of steamed milk foam than Flat White coffee",
+    rating: 3.5,
+    numReviews: 8,
   },
   {
     id: 5,
@@ -61,6 +69,8 @@ const menu = [
     img_url: "hot5",
     short_description:
       "Espresso-based coffee combine in the right amount of green tea and top with steamed milk foam",
+    rating: 5,
+    numReviews: 20,
   },
   {
     id: 6,
@@ -73,6 +83,8 @@ const menu = [
     img_url: "hot6",
     short_description:
       "Indulge in this flavorful drink from our neighbors to the south that pairs robust coffee with chocolate, spice, citrus and vanilla. It's magic in a cup!",
+    rating: 4.5,
+    numReviews: 15,
   },
   {
     id: 7,
@@ -85,6 +97,8 @@ const menu = [
     img_url: "hot7",
     short_description:
       "Indulgent espresso based, cocoa, chocolate blended together for a creamy indulgence.",
+    rating: 4,
+    numReviews: 17,
   },
   {
     id: 8,
@@ -97,6 +111,8 @@ const menu = [
     img_url: "hot8",
     short_description:
       "Cafe au Lait(coffee with milk) consists of equal parts coffee and steamed milk and top with cream foam",
+    rating: 4.5,
+    numReviews: 10,
   },
   {
     id: 9,
@@ -109,6 +125,8 @@ const menu = [
     img_url: "cold1",
     short_description:
       "Combination of strong espresso and sweetened condensed milk, half-and-half, a little sugar and vanilla",
+    rating: 5,
+    numReviews: 19,
   },
   {
     id: 10,
@@ -121,6 +139,8 @@ const menu = [
     img_url: "cold2",
     short_description:
       "A perfect balance of espresso, vanilla, milk and caramel.",
+    rating: 4,
+    numReviews: 16,
   },
   {
     id: 11,
@@ -133,6 +153,8 @@ const menu = [
     img_url: "cold3",
     short_description:
       "Espresso over ice with sweetened condensed milk is an unbeatable Southeast Asian treat",
+    rating: 4.5,
+    numReviews: 18,
   },
   {
     id: 12,
@@ -145,6 +167,8 @@ const menu = [
     img_url: "cold4",
     short_description:
       "Espresso-based coffee perfectly blend with cocoa, almond milk on the ice",
+    rating: 4.5,
+    numReviews: 13,
   },
   {
     id: 13,
@@ -157,6 +181,8 @@ const menu = [
     img_url: "cold5",
     short_description:
       "Homemade vanilla simple syrup gives a fragrant hint of sweetness to your iced Espresso coffee.",
+    rating: 5,
+    numReviews: 22,
   },
   {
     id: 14,
@@ -169,6 +195,8 @@ const menu = [
     img_url: "cold6",
     short_description:
       "The toasted flavor of caramel pairs beautifully with coconut and cold brew espresso",
+    rating: 5,
+    numReviews: 22,
   },
   {
     id: 15,
@@ -181,6 +209,8 @@ const menu = [
     img_url: "cold7",
     short_description:
       "Italian iced coffee, made by shaking coffee with ice and toasted coconut syrup, top with creamy coconut milk",
+    rating: 4.5,
+    numReviews: 19,
   },
   {
     id: 16,
@@ -193,6 +223,8 @@ const menu = [
     img_url: "cold8",
     short_description:
       "Espresso-based coffee infuse it with cinnamon and chicory (a New Orleans classic) overnight.",
+    rating: 4,
+    numReviews: 19,
   },
   {
     id: 17,
@@ -201,6 +233,8 @@ const menu = [
     price: 15.99,
     img_url: "",
     short_description: `I'm baby woke mlkshk wolf bitters live-edge blue bottle, hammock freegan copper mug whatever cold-pressed `,
+    rating: 4.5,
+    numReviews: 18,
   },
   {
     id: 18,
@@ -209,6 +243,8 @@ const menu = [
     price: 20.99,
     img_url: "",
     short_description: `Shabby chic keffiyeh neutra snackwave pork belly shoreditch. Prism austin mlkshk truffaut, `,
+    rating: 4,
+    numReviews: 10,
   },
   {
     id: 19,
@@ -217,6 +253,8 @@ const menu = [
     price: 6.99,
     img_url: "",
     short_description: `ombucha chillwave fanny pack 3 wolf moon street art photo booth before they sold out organic viral.`,
+    rating: 4.5,
+    numReviews: 20,
   },
   {
     id: 20,
@@ -225,6 +263,8 @@ const menu = [
     price: 16.99,
     img_url: "",
     short_description: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
+    rating: 4.5,
+    numReviews: 18,
   },
 ];
 

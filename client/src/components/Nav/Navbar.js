@@ -1,6 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import CartContext from "../../contexts/Cart/CartContext";
+import { useContext } from "react";
 function Navbar() {
+  const { cartItems, showHideCart } = useContext(CartContext);
+
   return (
     <>
       <div id="navbarHP" name="pill-nav">
@@ -13,6 +17,21 @@ function Navbar() {
                 <Link to="/yourorder" className="navR">
                   <span>Your Order</span>
                 </Link>
+              </li>
+
+              <li>
+                <div className="cart__icon btn-light btn">
+                  <i
+                    className="fa fa-shopping-cart"
+                    aria-hidden="true"
+                    onClick={showHideCart}
+                  />
+                  {cartItems.length > 0 && (
+                    <div className="item__count">
+                      <span>{cartItems.length}</span>
+                    </div>
+                  )}
+                </div>
               </li>
 
               <li className="nav-item active">
