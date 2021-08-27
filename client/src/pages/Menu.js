@@ -52,18 +52,20 @@ const Menu = () => {
     setMenuItems(filtered);
   };
 
-  const handleOrder = (item, { target }) => {
-    const quantity = target.previousSibling.previousSibling.value;
-    const size = target.previousSibling.value;
-    console.log(item);
-    dispatch({ type: ADD_ORDER, payload: { ...item, quantity, size } });
-    console.log(quantities);
-  };
-
   const priceMap = {
     small: "price_sm",
     medium: "price_md",
     large: "price_lg",
+  };
+
+  const handleOrder = (item, { target }) => {
+    const size = target.previousSibling.previousSibling.value;
+    const quantity =
+      target.previousSibling.previousSibling.previousSibling.value;
+    const price = item[priceMap[size]];
+    // console.log(item);
+    // dispatch({ type: ADD_ORDER, payload: { ...item, quantity, size } });
+    addToCart({ ...item, quantity, size, price });
   };
 
   return (
@@ -179,7 +181,7 @@ const Menu = () => {
                         </button> */}
                         <button
                           className="ProductCard__button"
-                          onClick={() => addToCart(menuItem)}
+                          onClick={(e) => handleOrder(menuItem, e)}
                         >
                           Order
                         </button>

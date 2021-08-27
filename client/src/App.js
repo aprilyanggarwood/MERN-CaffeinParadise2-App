@@ -15,7 +15,6 @@ import Menu from "./pages/Menu";
 import Contact from "./pages/Contact";
 import { StoreProvider } from "./components/utils/GlobalState";
 import YourOrders from "./pages/YourOrders";
-import OrderModal from "./pages/OrderModal";
 
 function App() {
   return (
@@ -41,7 +40,7 @@ function App() {
               <Route exact path="/menu" component={Menu} />
               <Route exact path="/contact" component={Contact} />
               <Route exact path="/yourorder" component={YourOrders} />
-              <Route exact path="/ordermodal" component={OrderModal} />
+
               {/* <Route exact path="/signup" component={Signup} /> */}
               {/* <Route exact path="/login" component={Login} /> */}
               {/* <Route exact path="/forgot-password" component={ForgotPassword} /> */}

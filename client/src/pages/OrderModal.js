@@ -2,29 +2,60 @@ import { Modal, Button } from "react-bootstrap";
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const OrderModal = () => {
-  const [show, setShow] = useState(false);
+import { useContext } from "react";
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+import CartContext from "../contexts/Cart/CartContext";
 
+import CartItem from "../components/CartItem";
+
+const OrderModal = ({ open, close }) => {
+  const { cartItems } = useContext(CartContext);
+  const handleOrder = () => {
+    //do order stuff
+  };
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        Confirm your order
-      </Button>
-
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={open} onHide={close}>
         <Modal.Header closeButton>
           <Modal.Title>Your orders here! </Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Body>
+          <div>
+            <div style={{ textAlign: "right" }}>
+              <i
+                style={{ cursor: "pointer" }}
+                className="fa fa-times-circle"
+                aria-hidden="true"
+              ></i>
+            </div>
+            <div>
+              {cartItems.length === 0 ? (
+                <h4>Cart is Empty</h4>
+              ) : (
+                <ul>
+                  {cartItems.map((item) => (
+                    <CartItem key={item._id} item={item} />
+                  ))}
+                </ul>
+              )}
+            </div>
+            <div>
+              <div>
+                Cart Total:
+                {/* {item.`${size} x ${quantity} = $${
+                item[priceMap[size]] * Number(quantity)
+              }`} */}
+              </div>
+              <div></div>
+            </div>
+          </div>
+        </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
+          <Button variant="primary" onClick={handleOrder}>
+            Confirm your order
           </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
+          <Button variant="secondary" onClick={close}>
+            Close
           </Button>
         </Modal.Footer>
       </Modal>

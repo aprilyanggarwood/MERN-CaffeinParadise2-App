@@ -10,6 +10,7 @@ const CartReducer = (state, action) => {
       };
     }
     case ADD_TO_CART: {
+      console.log(action.payload);
       return {
         ...state,
         cartItems: [...state.cartItems, action.payload],

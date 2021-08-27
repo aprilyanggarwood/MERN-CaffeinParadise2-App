@@ -1,6 +1,6 @@
 const menu = [
   {
-    id: 1,
+    _id: "1",
     category: "Coffee Drinks",
 
     sub_category: "hot coffee drink",
@@ -16,7 +16,7 @@ const menu = [
   },
 
   {
-    id: 2,
+    _id: "2",
     category: "Coffee Drinks",
 
     sub_category: "hot coffee drink",
@@ -31,7 +31,7 @@ const menu = [
     numReviews: 10,
   },
   {
-    id: 3,
+    _id: "3",
     category: "Coffee Drinks",
     sub_category: "hot coffee drink",
     name: "Flat White",
@@ -45,7 +45,7 @@ const menu = [
     numReviews: 15,
   },
   {
-    id: 4,
+    _id: "4",
     category: "Coffee Drinks",
     sub_category: "hot coffee drink",
     name: "Latte",
@@ -59,7 +59,7 @@ const menu = [
     numReviews: 8,
   },
   {
-    id: 5,
+    _id: "5",
     category: "Coffee Drinks",
     sub_category: "hot coffee drink",
     name: "Green Tea Latte",
@@ -73,7 +73,7 @@ const menu = [
     numReviews: 20,
   },
   {
-    id: 6,
+    _id: "6",
     category: "Coffee Drinks",
     sub_category: "hot coffee drink",
     name: "Mexican Coffee",
@@ -87,7 +87,7 @@ const menu = [
     numReviews: 15,
   },
   {
-    id: 7,
+    _id: "7",
     category: "Coffee Drinks",
     sub_category: "hot coffee drink",
     name: "Hot Mocha Float",
@@ -101,7 +101,7 @@ const menu = [
     numReviews: 17,
   },
   {
-    id: 8,
+    _id: "8",
     category: "Coffee Drinks",
     sub_category: "hot coffee drink",
     name: "Cafe au Lait",
@@ -115,7 +115,7 @@ const menu = [
     numReviews: 10,
   },
   {
-    id: 9,
+    _id: "9",
     category: "Coffee Drinks",
     sub_category: "cold coffee drink",
     name: "Cappuccino on Ice",
@@ -129,7 +129,7 @@ const menu = [
     numReviews: 19,
   },
   {
-    id: 10,
+    _id: "10",
     category: "Coffee Drinks",
     sub_category: "cold coffee drink",
     name: "Iced Caramel Macchiato",
@@ -143,7 +143,7 @@ const menu = [
     numReviews: 16,
   },
   {
-    id: 11,
+    _id: "11",
     category: "Coffee Drinks",
     sub_category: "cold coffee drink",
     name: "Vietnamese Iced Coffee",
@@ -157,7 +157,7 @@ const menu = [
     numReviews: 18,
   },
   {
-    id: 12,
+    _id: "12",
     category: "Coffee Drinks",
     sub_category: "cold coffee drink",
     name: "Chocolate Iced Mocha",
@@ -171,7 +171,7 @@ const menu = [
     numReviews: 13,
   },
   {
-    id: 13,
+    _id: "13",
     category: "Coffee Drinks",
     sub_category: "cold coffee drink",
     name: "Vanilla Iced Coffee",
@@ -185,7 +185,7 @@ const menu = [
     numReviews: 22,
   },
   {
-    id: 14,
+    _id: "14",
     category: "Coffee Drinks",
     sub_category: "cold coffee drink",
     name: "Coconut Caramel Cold Brew",
@@ -199,7 +199,7 @@ const menu = [
     numReviews: 22,
   },
   {
-    id: 15,
+    _id: "15",
     category: "Coffee Drinks",
     sub_category: "cold coffee drink",
     name: "Toasted Coconut Shakerato",
@@ -213,7 +213,7 @@ const menu = [
     numReviews: 19,
   },
   {
-    id: 16,
+    _id: "16",
     category: "Coffee Drinks",
     sub_category: "cold coffee drink",
     name: "Overnight New Orleans-Style Iced Coffee",
@@ -227,7 +227,7 @@ const menu = [
     numReviews: 19,
   },
   {
-    id: 17,
+    _id: "17",
     category: "breakfast",
     name: "buttermilk pancakes",
     price: 15.99,
@@ -237,7 +237,7 @@ const menu = [
     numReviews: 18,
   },
   {
-    id: 18,
+    _id: "18",
     category: "breakfast",
     name: "country delight",
     price: 20.99,
@@ -247,7 +247,7 @@ const menu = [
     numReviews: 10,
   },
   {
-    id: 19,
+    _id: "19",
     category: "shakes",
     name: "godzilla milkshake",
     price: 6.99,
@@ -257,7 +257,7 @@ const menu = [
     numReviews: 20,
   },
   {
-    id: 20,
+    _id: "20",
     category: "shakes",
     name: "quarantine buddy",
     price: 16.99,

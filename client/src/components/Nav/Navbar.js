@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import CartContext from "../../contexts/Cart/CartContext";
 import { useContext } from "react";
+import OrderModal from "../../pages/OrderModal";
 function Navbar() {
-  const { cartItems, showHideCart } = useContext(CartContext);
-
+  const { cartItems } = useContext(CartContext);
+  const [modalOpen, setModalOpen] = useState(false);
+  const close = () => setModalOpen(false);
   return (
     <>
+      <OrderModal open={modalOpen} close={close} />
       <div id="navbarHP" name="pill-nav">
         <nav className="navbar navbar-expand-lg navbar-light bg-gray">
           <h2 className="titleHeading"> Caffeine Paradise</h2>
@@ -24,7 +27,7 @@ function Navbar() {
                   <i
                     className="fa fa-shopping-cart"
                     aria-hidden="true"
-                    onClick={showHideCart}
+                    onClick={() => setModalOpen(!modalOpen)}
                   />
                   {cartItems.length > 0 && (
                     <div className="item__count">

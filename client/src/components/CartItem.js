@@ -1,66 +1,40 @@
 import { useStoreContext } from "../components/utils/GlobalState";
-import { useEffect } from "react";
-// import CoffeeDrinkImg from "./CoffeeDrinkImg";
-import { Link } from "react-router-dom";
-import {
-  ADD_ORDER,
-  // REMOVE_ORDER,
-  // SAVE_ORDER,
-} from "../components/utils/action/actionTypes";
+import { useContext, useEffect } from "react";
+import "./CartItem.css";
+import CoffeeDrinkImg from "../pages/CoffeeDrinkImg";
+import CartContext from "../contexts/Cart/CartContext";
+import Items from "../pages/MenuData";
 
 const priceMap = {
   small: "price_sm",
   medium: "price_md",
   large: "price_lg",
 };
-const OrdersPage = () => {
-  const [state, dispatch] = useStoreContext();
-
-  useEffect(() => {
-    console.log("orders", state.orders);
-  }, [state]);
-
+const CartItem = ({ item }) => {
+  const { removeItem } = useContext(CartContext);
+  const { name, price, size, quantity, _id } = item;
+  // const { name, img_url, size, quantity } = items;
   return (
-    <>
-      <Link to="/menu" className="navR">
-        <span>Back to Menu</span>
-      </Link>
-      {state.orders.map((menuItem, i) => {
-        const { name, img_url, size, quantity } = menuItem;
-        return (
-          <div className="col" key={i}>
-            <ul>
-              <li>
-                <img
-                  src={"CoffeeDrinkImg[img_url]"}
-                  className="card-img-top img-size target"
-                  alt="name"
-                />
-              </li>
+    <div className="CartItem__item">
+      <div className="col">
+        <li>
+          <img
+            src={"CoffeeDrinkImg[img_url]"}
+            className="card-img-top img-size target"
+            alt="name"
+          />
+          <h4 className="card-title">
+            {name} x {quantity}
+          </h4>
+          c<div>$ {price * quantity}</div>
+        </li>
 
-              <li>
-                <h4 className="card-title">{name}</h4>
-              </li>
-              <li>
-                {`${size} x ${quantity} = $${
-                  menuItem[priceMap[size]] * Number(quantity)
-                }`}
-              </li>
-            </ul>
-            <hr></hr>
-          </div>
-        );
-      })}
-      <h4>
-        Total - $
-        {state.orders.reduce(
-          (total, order) =>
-            total + order[priceMap[order.size]] * Number(order.quantity),
-          0
-        )}
-      </h4>
-    </>
+        <button className="CartItem__button" onClick={() => removeItem(_id)}>
+          Remove
+        </button>
+      </div>
+    </div>
   );
 };
 
-export default OrdersPage;
+export default CartItem;

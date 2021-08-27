@@ -2,7 +2,7 @@ import { useContext } from "react";
 
 import CartContext from "../contexts/Cart/CartContext";
 import "./Cart.css";
-// import CartItem from "./CartItem";
+import CartItem from "./CartItem";
 
 const Cart = () => {
   const { showCart, cartItems, showHideCart } = useContext(CartContext);
@@ -24,16 +24,19 @@ const Cart = () => {
               <h4>Cart is Empty</h4>
             ) : (
               <ul>
-                {cartItems.map((item, i) => (
-                  <div key={i}>
-                    <h2>{item.name}</h2>
-                  </div>
+                {cartItems.map((item) => (
+                  <CartItem key={item._id} item={item} />
                 ))}
               </ul>
             )}
           </div>
           <div className="Cart__cartTotal">
-            <div>Cart Total</div>
+            <div>
+              Cart Total:
+              {/* {item.`${size} x ${quantity} = $${
+                item[priceMap[size]] * Number(quantity)
+              }`} */}
+            </div>
             <div></div>
           </div>
         </div>
@@ -41,5 +44,4 @@ const Cart = () => {
     </>
   );
 };
-
 export default Cart;
